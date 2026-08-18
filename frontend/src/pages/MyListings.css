@@ -1,0 +1,479 @@
+/* =========================
+   MY LISTINGS PAGE
+========================= */
+
+.my-listings-container {
+    min-height: calc(100vh - 75px);
+
+    padding: 50px 5% 70px;
+
+    background: var(--background);
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    margin-bottom: 42px;
+}
+
+.page-badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    margin-bottom: 14px;
+
+    border-radius: 999px;
+
+    background: #F1EEFF;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+.page-header h1 {
+    width: 100%;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 38px;
+    font-weight: 600;
+
+    letter-spacing: -0.7px;
+
+    line-height: 1.2;
+
+    text-align: center;
+}
+
+.page-header p {
+    display: block;
+
+    width: auto;
+
+    margin: 10px auto 0;
+
+    color: var(--text-light);
+
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* =========================
+   LISTINGS GRID
+========================= */
+
+.listings-grid {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =========================
+   LISTING CARD
+========================= */
+
+.listing-card {
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.listing-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 32px rgba(15, 23, 42, .10);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.listing-image {
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F8FAFC;
+
+    border-bottom: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+.listing-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 14px;
+
+    transition: transform .3s ease;
+}
+
+.listing-card:hover .listing-image img {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   IMAGE PLACEHOLDER
+========================= */
+
+.listing-image-placeholder {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #94A3B8;
+
+    font-size: 14px;
+}
+
+.listing-image-placeholder svg {
+    font-size: 34px;
+}
+
+
+/* =========================
+   LISTING CONTENT
+========================= */
+
+.listing-content {
+    padding: 20px;
+}
+
+.listing-content h3 {
+    margin: 0 0 12px;
+
+    color: var(--text);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    min-height: 49px;
+}
+
+.listing-content h2 {
+    margin: 0 0 12px;
+
+    color: var(--primary);
+
+    font-size: 23px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.location svg {
+    flex-shrink: 0;
+
+    color: var(--primary);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.listing-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.edit-btn,
+.delete-btn {
+    flex: 1;
+
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+/* =========================
+   EDIT BUTTON
+========================= */
+
+.edit-btn {
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+}
+
+.edit-btn:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-btn {
+    background: #FFF1F2;
+
+    color: #DC2626;
+
+    border: none;
+}
+
+.delete-btn:hover {
+    background: #FEE2E2;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    max-width: 500px;
+
+    margin: 60px auto;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.empty-state > svg {
+    font-size: 48px;
+
+    color: var(--primary);
+
+    margin-bottom: 18px;
+}
+
+.empty-state h2 {
+    margin: 0 0 8px;
+
+    color: var(--text);
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.empty-state p {
+    margin: 0 0 22px;
+
+    color: var(--text-light);
+
+    font-size: 15px;
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 22px;
+
+    border-radius: 999px;
+
+    background: var(--primary);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .2s;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .listings-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .my-listings-container {
+        padding: 40px 25px 60px;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .listings-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+    .my-listings-container {
+        padding: 35px 16px 50px;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 30px;
+
+        letter-spacing: -0.5px;
+    }
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+    .listings-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .listing-image {
+        height: 210px;
+    }
+
+    .listing-content {
+        padding: 18px;
+    }
+
+}

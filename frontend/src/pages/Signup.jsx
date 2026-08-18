@@ -3,6 +3,13 @@ import "./Auth.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+import {
+    FiUser,
+    FiMail,
+    FiLock,
+    FiArrowRight,
+} from "react-icons/fi";
+
 const Signup = () => {
     const navigate = useNavigate();
 
@@ -29,7 +36,10 @@ const Signup = () => {
             );
 
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("user", JSON.stringify(res.data.user));
+            localStorage.setItem(
+                "user",
+                JSON.stringify(res.data.user)
+            );
 
             alert("Signup Successful");
 
@@ -45,44 +55,84 @@ const Signup = () => {
     return (
         <div className="auth-container">
 
-            <form className="auth-form" onSubmit={handleSubmit}>
+            <div className="auth-card">
 
-                <h2>Create Account</h2>
+                <span className="auth-badge">
+                    Join Sellora
+                </span>
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name"
-                    onChange={handleChange}
-                    required
-                />
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                    required
-                />
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                    required
-                />
-
-                <button type="submit">
-                    Signup
-                </button>
+                <h1>Create Your Account</h1>
 
                 <p>
-                    Already have an account?
-                    <Link to="/login"> Login</Link>
+                    Start buying and selling products with people
+                    around you.
                 </p>
 
-            </form>
+                <form
+                    className="auth-form"
+                    onSubmit={handleSubmit}
+                >
+
+                    <label>
+                        <FiUser />
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your full name"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <label>
+                        <FiMail />
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <label>
+                        <FiLock />
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create a password"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <button type="submit">
+
+                        Create Account
+
+                        <FiArrowRight />
+
+                    </button>
+
+                </form>
+
+                <p className="bottom-text">
+
+                    Already have an account?
+
+                    <Link to="/login">
+                        Login
+                    </Link>
+
+                </p>
+
+            </div>
 
         </div>
     );

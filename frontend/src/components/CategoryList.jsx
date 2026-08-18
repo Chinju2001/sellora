@@ -1,30 +1,57 @@
-import React from 'react'
-import "./Navbar.css";
+import React from "react";
+import {
+    FiMonitor,
+    FiSmartphone,
+    FiTruck,
+    FiHome,
+    FiShoppingBag,
+    FiBook,
+    FiCpu,
+    FiGrid,
+} from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+
+import "./CategoryList.css";
 
 const categories = [
-  "Electronics",
-  "Mobiles",
-  "Vehicles",
-  "Furniture",
-  "Fashion",
-  "Books",
-  "Home Appliances",
-  "Others"
+    { name: "Electronics", icon: <FiMonitor /> },
+    { name: "Mobiles", icon: <FiSmartphone /> },
+    { name: "Vehicles", icon: <FiTruck /> },
+    { name: "Furniture", icon: <FiHome /> },
+    { name: "Fashion", icon: <FiShoppingBag /> },
+    { name: "Books", icon: <FiBook /> },
+    { name: "Home Appliances", icon: <FiCpu /> },
+    { name: "Others", icon: <FiGrid /> },
 ];
 
 const CategoryList = () => {
-  return (
- <div className='categories-container'>
-    {
-      categories.map((category, index) => (
-    <button className="category-list" key={index}>
-        {category}
-    </button>
-))
-    }
- </div>
+    const navigate = useNavigate();
 
-  )
-}
+    const handleCategoryClick = (category) => {
+        navigate(
+            `/?category=${encodeURIComponent(category)}`
+        );
+    };
 
-export default CategoryList
+    return (
+        <section className="categories-container">
+            {categories.map((category) => (
+                <button
+                    key={category.name}
+                    className="category-chip"
+                    onClick={() =>
+                        handleCategoryClick(category.name)
+                    }
+                >
+                    <span className="category-icon">
+                        {category.icon}
+                    </span>
+
+                    <span>{category.name}</span>
+                </button>
+            ))}
+        </section>
+    );
+};
+
+export default CategoryList;

@@ -1,69 +1,295 @@
-.product-card{
-    width:220px;
-    padding:16px;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    background:white;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
-    transition:all .3s ease;
+.product-card {
+    position: relative;
+
+    width: 280px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .3s ease;
+
+    box-shadow: var(--shadow);
 }
 
-.product-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 20px rgba(0,0,0,.12);
+.product-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 40px rgba(15, 23, 42, .10);
 }
 
-.product-image{
-    width:100%;
-    height:160px;
-    background:#f3f4f6;
-    border-radius:12px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#888;
-    font-size:15px;
-    gap:8px;
-    overflow:hidden;
+
+/* ---------------- IMAGE ---------------- */
+
+.product-image {
+    height: 210px;
+
+    background: var(--background);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+.product-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.image-placeholder {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--text-light);
+
+    font-size: 14px;
 }
 
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+
+/* ---------------- HEART ---------------- */
+
+.wishlist-btn {
+    position: absolute;
+
+    top: 16px;
+
+    right: 16px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 18px;
+
+    transition: .25s;
 }
 
-.product-price{
-    font-size:22px;
-    font-weight:700;
-    margin-top:15px;
+.wishlist-btn:hover {
+    color: var(--primary);
+
+    transform: scale(1.08);
 }
 
-.product-name{
-    font-size:18px;
-    font-weight:600;
-    margin-top:8px;
+
+/* ---------------- CONTENT ---------------- */
+
+.product-content {
+    padding: 20px;
 }
 
-.product-location{
-    color:#777;
-    font-size:14px;
-    margin:8px 0 15px;
+.product-price {
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 8px;
 }
 
-.product-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:#035003;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    transition:.3s;
+.product-name {
+    font-size: 19px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+    margin-bottom: 12px;
+
+    min-height: 48px;
 }
 
-.product-button:hover{
-    background:#046b04;
+.product-location {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------------- LINK ---------------- */
+
+.details-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--primary);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.details-link:hover {
+    gap: 12px;
+
+    color: var(--primary-hover);
+}
+
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+[data-theme="dark"] .product-card {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .20);
+}
+
+[data-theme="dark"] .product-card:hover {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .30);
+}
+
+[data-theme="dark"] .wishlist-btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+}
+
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 992px) {
+
+    .product-card {
+        width: 260px;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+
+    .product-price {
+        font-size: 26px;
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+    .product-card {
+        width: 100%;
+
+        max-width: 380px;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+
+    .product-content {
+        padding: 18px;
+    }
+
+    .product-price {
+        font-size: 24px;
+    }
+
+    .product-name {
+        font-size: 18px;
+
+        min-height: auto;
+    }
+
+    .details-link {
+        justify-content: flex-start;
+    }
+}
+
+
+/* ===========================
+   SMALL PHONES
+=========================== */
+
+@media (max-width: 480px) {
+
+    .product-card {
+        max-width: 100%;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+
+    .product-content {
+        padding: 16px;
+    }
+
+    .product-price {
+        font-size: 22px;
+    }
+
+    .product-name {
+        font-size: 17px;
+    }
+
+    .product-location {
+        font-size: 13px;
+    }
+
+    .wishlist-btn {
+        width: 38px;
+
+        height: 38px;
+
+        top: 12px;
+
+        right: 12px;
+    }
+}
+.wishlist-btn.wishlisted {
+    color: #f00606;
+  
+}
+
+.wishlist-btn.wishlisted svg {
+    fill:#f00606;
 }

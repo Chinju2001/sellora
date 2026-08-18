@@ -1,6 +1,6 @@
-# 🛍️ LocoMarket
+# 🛍️ Sellora
 
-LocoMarket is a modern hyperlocal marketplace built using the MERN stack. It allows users to buy and sell products within their local community.
+Sellora is a modern hyperlocal marketplace built using the MERN stack. It allows users to buy and sell products within their local community.
 
 The goal of this project is to build a clean, responsive, and scalable marketplace application while learning full-stack web development.
 
@@ -40,7 +40,7 @@ The goal of this project is to build a clean, responsive, and scalable marketpla
 ## 📂 Project Structure
 
 ```
-locomarket
+sellora
 │
 ├── frontend
 │   ├── src

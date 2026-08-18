@@ -3,6 +3,12 @@ import "./Auth.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+import {
+    FiMail,
+    FiLock,
+    FiArrowRight
+} from "react-icons/fi";
+
 const Login = () => {
     const navigate = useNavigate();
 
@@ -28,7 +34,10 @@ const Login = () => {
             );
 
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("user", JSON.stringify(res.data.user));
+            localStorage.setItem(
+                "user",
+                JSON.stringify(res.data.user)
+            );
 
             alert("Login Successful");
 
@@ -43,36 +52,72 @@ const Login = () => {
 
     return (
         <div className="auth-container">
-            <form className="auth-form" onSubmit={handleSubmit}>
 
-                <h2>Login</h2>
+            <div className="auth-card">
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                    required
-                />
+                <span className="auth-badge">
+                    Welcome Back
+                </span>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                    required
-                />
-
-                <button type="submit">
-                    Login
-                </button>
+                <h1>Login to Sellora</h1>
 
                 <p>
-                    Don't have an account?
-                    <Link to="/signup"> Signup</Link>
+                    Continue buying and selling products near you.
                 </p>
 
-            </form>
+                <form
+                    className="auth-form"
+                    onSubmit={handleSubmit}
+                >
+
+                    <label>
+                        <FiMail />
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <label>
+                        <FiLock />
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <button type="submit">
+
+                        Login
+
+                        <FiArrowRight />
+
+                    </button>
+
+                </form>
+
+                <p className="bottom-text">
+
+                    Don't have an account?
+
+                    <Link to="/signup">
+                        Create one
+                    </Link>
+
+                </p>
+
+            </div>
+
         </div>
     );
 };

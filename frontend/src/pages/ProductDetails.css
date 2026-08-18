@@ -1,44 +1,728 @@
-.product-details{
-    display:flex;
-    gap:40px;
-    padding:20px;
+.product-details {
+
+    max-width: 1300px;
+
+    margin: 50px auto;
+
+    padding: 0 40px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 50px;
 }
 
-.details-image{
-    width: 100%;
-    flex:2;
-    max-width: 500px;
-    height: 300px;
-    background-color: lightgray;
-    border-radius: 12px;
+/* IMAGE */
+
+.details-image {
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    border: 1px solid #ECEEF3;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+
+    min-height: 430px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
-.details-info{
-    flex:1;
+.details-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.image-placeholder {
+
     display: flex;
+
     flex-direction: column;
-    gap: 12px;
-     padding:20px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-.details-info h2{
-    margin-bottom:10px;
+
+    gap: 15px;
+
+    align-items: center;
+
+    color: #94A3B8;
 }
 
-.details-info p{
-    line-height:1.6;
+/* RIGHT */
+
+.details-info {
+
+    display: flex;
+
+    flex-direction: column;
 }
 
-.contact-button{
-    background-color: rgb(3, 79, 3);
-    color: white;
+.details-info h1 {
+
+    font-size: 42px;
+
+    color: #0F172A;
+
+    margin-bottom: 12px;
+}
+
+.price {
+
+    font-size: 46px;
+
+    font-weight: 800;
+
+    color: #6D5EF6;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+/* INFO GRID */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+.info-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #ECEEF3;
+
+    box-shadow: 0 5px 18px rgba(15, 23, 42, .05);
+}
+
+.info-card svg {
+
+    font-size: 24px;
+
+    color: #6D5EF6;
+}
+
+.info-card small {
+
+    color: #64748B;
+
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+.info-card p {
+
+    font-weight: 600;
+
+    color: #0F172A;
+}
+
+/* DESCRIPTION */
+
+.description {
+
+    margin-bottom: 35px;
+}
+
+.description h3 {
+
+    margin-bottom: 12px;
+
+    color: #0F172A;
+}
+
+.description p {
+
+    line-height: 1.8;
+
+    color: #475569;
+}
+
+/* SELLER */
+
+.seller-box {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background: #F8FAFC;
+
+    border: 1px solid #ECEEF3;
+}
+
+.seller-box small {
+
+    color: #64748B;
+}
+
+.seller-box h4 {
+
+    margin-top: 6px;
+
+    font-size: 20px;
+}
+
+/* BUTTON */
+
+.contact-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
     border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
+
+    padding: 15px 24px;
+
+    border-radius: 16px;
+
+    background: #6D5EF6;
+
+    color: white;
+
     cursor: pointer;
-    margin-top: auto;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.contact-button:hover {
+
+    transform: translateY(-2px);
+
+    background: #5A4AE3;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+    .product-details {
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+    }
+
+    .details-image {
+
+        min-height: 320px;
+
+    }
+
+    .details-info h1 {
+
+        font-size: 32px;
+
+    }
+
+    .price {
+
+        font-size: 34px;
+
+    }
+
+    .seller-box {
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .details-image {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .20);
+}
+
+[data-theme="dark"] .details-info h1 {
+    color: var(--text);
+}
+
+[data-theme="dark"] .image-placeholder {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .info-card {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .18);
+}
+
+[data-theme="dark"] .info-card small {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .info-card p {
+    color: var(--text);
+}
+
+[data-theme="dark"] .description h3 {
+    color: var(--text);
+}
+
+[data-theme="dark"] .description p {
+    color: #CBD5E1;
+}
+
+[data-theme="dark"] .seller-box {
+    background: #172033;
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .seller-box small {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .seller-box h4 {
+    color: var(--text);
+}
+
+/* =========================
+   REPORT PRODUCT
+========================= */
+
+.report-product-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 12px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid #FECACA;
+
+    border-radius: 10px;
+
+    background: #FFF7F7;
+
+    color: #DC2626;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.report-product-button:hover {
+    background: #FEF2F2;
+
+    border-color: #FCA5A5;
+}
+
+
+/* =========================
+   REPORT OVERLAY
+========================= */
+
+.report-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, .45);
+}
+
+
+/* =========================
+   REPORT MODAL
+========================= */
+
+.report-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 440px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, .20);
+}
+
+.report-modal h2 {
+    margin: 0 0 8px;
+
+    color: var(--text);
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.report-modal p {
+    margin: 0 0 20px;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+.report-modal select {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.report-modal select:focus {
+    border-color: var(--primary);
+}
+
+
+/* CLOSE */
+
+.report-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--background);
+
+    color: var(--text-light);
+
+    cursor: pointer;
+}
+
+
+/* SUBMIT */
+
+.submit-report-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #DC2626;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.submit-report-button:disabled {
+    opacity: .5;
+
+    cursor: not-allowed;
+}
+/* =========================
+   SELLER RATING
+========================= */
+
+.seller-rating-section {
+    margin-top: 18px;
+
+    padding: 16px 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--surface);
+}
+
+.seller-rating-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.seller-rating-info small {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+.rating-display {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.rating-number {
+    color: var(--text);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rating-stars-display {
+    display: flex;
+
+    gap: 2px;
+}
+
+.rating-stars-display svg {
+    width: 16px;
+    height: 16px;
+}
+
+.star-filled,
+.star-selected {
+    fill: #F59E0B;
+
+    color: #F59E0B;
+}
+
+.star-empty,
+.star-unselected {
+    color: #CBD5E1;
+}
+
+
+/* RATE BUTTON */
+
+.rate-seller-button {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: var(--surface);
+
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.rate-seller-button:hover {
+    background: #F1EEFF;
+
+    border-color: var(--primary);
+}
+
+
+/* =========================
+   RATING MODAL
+========================= */
+
+.rating-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, .20);
+}
+
+.rating-modal h2 {
+    margin: 0 0 8px;
+
+    color: var(--text);
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rating-modal p {
+    margin: 0;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* STAR INPUT */
+
+.rating-stars-input {
+    display: flex;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 25px 0 12px;
+}
+
+.rating-stars-input button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.rating-stars-input svg {
+    width: 30px;
+    height: 30px;
+
+    transition: .15s;
+}
+
+.rating-stars-input button:hover svg {
+    transform: scale(1.1);
+}
+
+.rating-label {
+    min-height: 20px;
+
+    margin-bottom: 18px !important;
+
+    color: var(--primary) !important;
+
+    font-weight: 600;
+}
+
+
+/* SUBMIT */
+
+.submit-rating-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.submit-rating-button:hover {
+    background: var(--primary-hover);
+}
+
+.submit-rating-button:disabled {
+    opacity: .5;
+
+    cursor: not-allowed;
 }
