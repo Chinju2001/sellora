@@ -63,7 +63,7 @@ sellora
 Clone the repository
 
 ```bash
-git clone https://github.com/Chinju2001/locomarket.git
+git clone https://github.com/Chinju2001/sellora.git
 ```
 
 Install frontend dependencies
