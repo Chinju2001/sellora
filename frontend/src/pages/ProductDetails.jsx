@@ -52,7 +52,7 @@ const ProductDetails = () => {
     const fetchProduct = async () => {
         try {
             const res = await axios.get(
-                `http://localhost:5000/api/products/${id}`
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`
             );
 
             setProduct(res.data.product);
@@ -68,7 +68,7 @@ const ProductDetails = () => {
     const fetchSellerRating = async (sellerId) => {
         try {
             const res = await axios.get(
-                `http://localhost:5000/api/ratings/seller/${sellerId}`
+                `${import.meta.env.VITE_API_URL}/api/ratings/seller/${sellerId}`
             );
 
             setRating(res.data.averageRating || 0);
@@ -99,7 +99,7 @@ const ProductDetails = () => {
             setContacting(true);
 
             const res = await axios.post(
-                "http://localhost:5000/api/chat/conversations",
+                `${import.meta.env.VITE_API_URL}/api/chat/conversations`,
                 {
                     productId: product._id,
                 },
@@ -142,7 +142,7 @@ const ProductDetails = () => {
             setReporting(true);
 
             await axios.post(
-                "http://localhost:5000/api/reports",
+                `${import.meta.env.VITE_API_URL}/api/reports`,
                 {
                     productId: product._id,
                     reason: reportReason,
@@ -189,7 +189,7 @@ const ProductDetails = () => {
             setRatingSubmitting(true);
 
             await axios.post(
-                "http://localhost:5000/api/ratings",
+                `${import.meta.env.VITE_API_URL}/api/ratings`,
                 {
                     productId: product._id,
                     rating: selectedRating,

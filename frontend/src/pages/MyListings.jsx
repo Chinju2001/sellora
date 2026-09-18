@@ -25,7 +25,7 @@ const MyListings = () => {
             const token = localStorage.getItem("token");
 
             const res = await axios.get(
-                "http://localhost:5000/api/products/my-products",
+                `${import.meta.env.VITE_API_URL}/api/products/my-products`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ const MyListings = () => {
             const token = localStorage.getItem("token");
 
             await axios.delete(
-                `http://localhost:5000/api/products/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

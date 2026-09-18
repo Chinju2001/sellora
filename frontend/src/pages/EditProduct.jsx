@@ -38,7 +38,7 @@ const EditProduct = () => {
         try {
 
             const res = await axios.get(
-                `http://localhost:5000/api/products/${id}`
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`
             );
 
             setFormData(res.data.product);
@@ -69,7 +69,7 @@ const EditProduct = () => {
 
             await axios.put(
 
-                `http://localhost:5000/api/products/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`,
 
                 formData,
 

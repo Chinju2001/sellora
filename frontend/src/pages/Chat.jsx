@@ -23,7 +23,7 @@ const Chat = () => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
 
-    const API = "http://localhost:5000/api/chat";
+    const API = `${import.meta.env.VITE_API_URL}/api/chat`;
 
     /* =========================
        FETCH CHAT
@@ -95,7 +95,7 @@ const Chat = () => {
 
         // Create socket connection
         socketRef.current = io(
-            "http://localhost:5000"
+            `${import.meta.env.VITE_API_URL}`
         );
 
         // Join this conversation

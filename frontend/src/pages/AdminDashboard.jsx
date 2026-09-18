@@ -41,7 +41,7 @@ const AdminDashboard = () => {
     const fetchDashboard = async () => {
         try {
             const statsRes = await axios.get(
-                "http://localhost:5000/api/admin/stats",
+                `${import.meta.env.VITE_API_URL}/api/admin/stats`,
                 { headers }
             );
 
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
     const fetchUsers = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:5000/api/admin/users",
+                `${import.meta.env.VITE_API_URL}/api/admin/users`,
                 { headers }
             );
 
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
     const fetchProducts = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:5000/api/admin/listings",
+                `${import.meta.env.VITE_API_URL}/api/admin/listings`,
                 { headers }
             );
 
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
     const fetchReports = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:5000/api/admin/reports",
+                `${import.meta.env.VITE_API_URL}/api/admin/reports`,
                 { headers }
             );
 
@@ -128,7 +128,7 @@ const AdminDashboard = () => {
 
         try {
             await axios.delete(
-                `http://localhost:5000/api/admin/users/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/admin/users/${id}`,
                 { headers }
             );
 
@@ -159,7 +159,7 @@ const AdminDashboard = () => {
 
         try {
             await axios.delete(
-                `http://localhost:5000/api/admin/listings/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/admin/listings/${id}`,
                 { headers }
             );
 
@@ -186,7 +186,7 @@ const AdminDashboard = () => {
     ) => {
         try {
             await axios.put(
-                `http://localhost:5000/api/admin/reports/${reportId}`,
+                `${import.meta.env.VITE_API_URL}/api/admin/reports/${reportId}`,
                 { status },
                 { headers }
             );
